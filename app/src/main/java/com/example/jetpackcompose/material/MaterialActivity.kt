@@ -37,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.TextStyle
@@ -148,7 +149,7 @@ fun MaterialCardComponent() {
     // You can think of Modifiers as implementations of the decorators pattern that are used to
     // modify the composable that its applied to. In the example below, we add a padding of
     // 8dp to the Card composable.
-    Card(shape = RoundedCornerShape(4.dp), modifier = Modifier.padding(8.dp)) {
+    Card(shape = RoundedCornerShape(4.dp), modifier = Modifier.padding(8.dp).testTag("lol")) {
         // ListItem is a predefined composable that is a Material Design implementation of [list
         // items](https://material.io/components/lists). This component can be used to achieve the
         // list item templates existing in the spec

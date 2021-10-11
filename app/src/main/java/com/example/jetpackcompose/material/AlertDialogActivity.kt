@@ -18,6 +18,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.activity.compose.setContent
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
@@ -67,7 +70,7 @@ fun ClickableText() {
     // on Android.
     // Here, we just change the value of showPopup to be true every time we click on the text that
     // says "Click to see Popup"
-    Column(Modifier.clickable(onClick = { showPopup = true }), content = {
+    Column(Modifier.clickable(onClick = { showPopup = true }).testTag("lol"), content = {
         // You can think of Modifiers as implementations of the decorators pattern that are used to
         // modify the composable that its applied to. In the example below, we add a padding of
         // 8dp to the Card composable and 16dp to the Text composable.
@@ -78,7 +81,12 @@ fun ClickableText() {
             // The Text composable is pre-defined by the Compose UI library; you can use this
             // composable to render text on the screen
             Text(
-                text = "Click to see dialog", modifier = Modifier.padding(16.dp),
+                text = "Click to see dialog",
+                modifier = Modifier
+                    .padding(16.dp)
+                    .semantics {
+                        contentDescription = "desc"
+                    },
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = FontFamily.Serif

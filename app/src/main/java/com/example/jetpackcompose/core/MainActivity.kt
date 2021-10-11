@@ -1,5 +1,3 @@
-@file:Suppress("UNUSED_PARAMETER")
-
 package com.example.jetpackcompose.core
 
 import android.content.Intent

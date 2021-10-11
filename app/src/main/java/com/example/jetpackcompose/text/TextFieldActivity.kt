@@ -23,6 +23,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.InternalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -88,7 +89,7 @@ class TextFieldActivity : AppCompatActivity() {
 // built up of smaller composable functions.
 @InternalTextApi
 @Composable
-fun SimpleTextInputComponent() {
+fun SimpleTextInputComponent(testTag: String = "text_input") {
     // Surface is a composable provided to fulfill the needs of the "Surface" metaphor from the
     // Material Design specification. It's generally used to change the background color, add
     // elevation, clip or add background shape to its children composables.
@@ -115,6 +116,7 @@ fun SimpleTextInputComponent() {
         BasicTextField(
             value = textValue,
             modifier = Modifier
+                .testTag(testTag)
                 .padding(16.dp)
                 .fillMaxWidth(),
             // Update value of textValue with the latest value of the text field
@@ -132,7 +134,7 @@ fun SimpleTextInputComponent() {
 // built up of smaller composable functions.
 @InternalTextApi
 @Composable
-fun CustomStyleTextInputComponent() {
+fun CustomStyleTextInputComponent(testTag: String = "custom_style_text_input") {
     // Surface is a composable provided to fulfill the needs of the "Surface" metaphor from the
     // Material Design specification. It's generally used to change the background color, add
     // elevation, clip or add background shape to its children composables.
@@ -159,6 +161,7 @@ fun CustomStyleTextInputComponent() {
         BasicTextField(
             value = textValue,
             modifier = Modifier
+                .testTag(testTag)
                 .padding(16.dp)
                 .fillMaxWidth(),
             // You can also customize the appearance of the TextInput by passing a TextStyle
@@ -185,7 +188,7 @@ fun CustomStyleTextInputComponent() {
 // built up of smaller composable functions.
 @InternalTextApi
 @Composable
-fun NumberTextInputComponent() {
+fun NumberTextInputComponent(testTag: String = "number_text_input") {
     // Surface is a composable provided to fulfill the needs of the "Surface" metaphor from the
     // Material Design specification. It's generally used to change the background color, add
     // elevation, clip or add background shape to its children composables.
@@ -212,6 +215,7 @@ fun NumberTextInputComponent() {
         BasicTextField(
             value = textValue,
             modifier = Modifier
+                .testTag(testTag)
                 .padding(16.dp)
                 .fillMaxWidth(),
             // Setting the keyboard type allows you to configure what kind of data you can input
@@ -234,7 +238,7 @@ fun NumberTextInputComponent() {
 // built up of smaller composable functions.
 @InternalTextApi
 @Composable
-fun SearchImeActionInputComponent() {
+fun SearchImeActionInputComponent(testTag: String = "action_input") {
     // LocalContext is a LocalComposition for accessting the context value that we are used to using
     // in Android.
 
@@ -277,6 +281,7 @@ fun SearchImeActionInputComponent() {
         BasicTextField(
             value = textValue,
             modifier = Modifier
+                .testTag(testTag)
                 .padding(16.dp)
                 .fillMaxWidth(),
             // Changing the imeAction allows you to change the primary icon of the keyboard which
@@ -303,7 +308,7 @@ fun SearchImeActionInputComponent() {
 // built up of smaller composable functions.
 @InternalTextApi
 @Composable
-fun PasswordVisualTransformationInputComponent() {
+fun PasswordVisualTransformationInputComponent(testTag: String = "password_input") {
     // Surface is a composable provided to fulfill the needs of the "Surface" metaphor from the
     // Material Design specification. It's generally used to change the background color, add
     // elevation, clip or add background shape to its children composables.
@@ -330,6 +335,7 @@ fun PasswordVisualTransformationInputComponent() {
         BasicTextField(
             value = textValue,
             modifier = Modifier
+                .testTag(testTag)
                 .padding(16.dp)
                 .fillMaxWidth(),
             // Visual transformation is used to modify the visual output of the input field. In
@@ -356,7 +362,7 @@ fun PasswordVisualTransformationInputComponent() {
 // think of composable functions to be similar to lego blocks - each composable function is in turn 
 // built up of smaller composable functions.
 @Composable
-fun MaterialTextInputComponent() {
+fun MaterialTextInputComponent(testTag: String = "material_text_input") {
     var textValue by remember { mutableStateOf(TextFieldValue("")) }
 
     // TextField is a composable that is capable of accepting text user input. It renders the
@@ -382,6 +388,7 @@ fun MaterialTextInputComponent() {
         label = { Text("Enter Your Name") },
         placeholder = { Text(text = "John Doe") },
         modifier = Modifier
+            .testTag(testTag)
             .padding(16.dp)
             .fillMaxWidth()
     )
